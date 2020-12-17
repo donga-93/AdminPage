@@ -66,7 +66,7 @@
             }
         },
         methods: {
-            ...mapActions('people', ['updateTask', 'deleteTask']),
+            ...mapActions('tasks', ['updateTask', 'deleteTask']),
             promptToDelete(id) {
                 this.$q.dialog({
                     title: 'Confirm',

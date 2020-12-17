@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-white">
-    <q-header elevated>
+    <q-header class="bg-red-9" elevated>
       <q-toolbar>
         <q-btn
           flat
@@ -108,6 +108,10 @@
                     .then(user => {
                         this.$router.push("/login");
                     });
+                this.$q.notify({
+                    message: 'Customer Logged out',
+                    color:'red'
+                })
             },
         }
     }
