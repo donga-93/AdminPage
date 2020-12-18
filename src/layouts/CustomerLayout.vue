@@ -16,7 +16,7 @@
           flat
           icon-right="account_circle"
           label="Logout"
-          class="absolute-right" />
+          class="absolute-right"/>
 
         <q-toolbar-title style="text-align: center;">
           Digital TV
@@ -40,72 +40,107 @@
     >
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
         <q-list padding>
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/customer">
             <q-item-section avatar>
-              <q-icon name="inbox" />
+              <q-icon name="home"/>
             </q-item-section>
 
             <q-item-section>
-              Inbox
+              HOME PAGE
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple to="/CustomerPage1">
+            <q-item-section avatar>
+              <q-icon name="star"/>
+            </q-item-section>
+
+            <q-item-section>
+              P1
             </q-item-section>
           </q-item>
 
-          <q-item active clickable v-ripple>
+          <q-item active clickable v-ripple to="/CustomerPage2">
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="star"/>
             </q-item-section>
 
             <q-item-section>
-              Star
+              P2
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/CustomerPage3">
             <q-item-section avatar>
-              <q-icon name="send" />
+              <q-icon name="star"/>
             </q-item-section>
 
             <q-item-section>
-              Send
+              P3
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple to="/CustomerPage4">
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="star"/>
             </q-item-section>
 
             <q-item-section>
-              Drafts
+              P4
             </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
 
-      <q-img class="absolute-top" src="https://cdn.quasar.dev/img/material.png" style="height: 150px">
+      <q-img class="absolute-top" src="https://miro.medium.com/max/2400/1*S8UogculWFLr3lVdLn05MA.jpeg" style="height: 150px">
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
             <img src="https://cdn.quasar.dev/img/boy-avatar.png">
           </q-avatar>
-          <div class="text-weight-bold">Razvan Stoenescu</div>
+          <div v-if="user" class="text-weight-bold">{{user.email}}</div>
         </div>
       </q-img>
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <router-view/>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
     import firebase from "firebase";
+    import { mapGetters } from 'vuex'
+
     export default {
         name: 'MyLayout',
-        data () {
+        data() {
             return {
+                users: [],
+                user: null,
                 leftDrawerOpen: false
             }
+        },   created() {
+            let self = this;
+            firebase.auth().onAuthStateChanged(function(user) {
+                self.user = user;
+            });
+
+            this.users = [];
+            firebase
+                .firestore()
+                .collection("roles")
+                .get()
+                .then(snap => {
+                    snap.forEach(doc => {
+                        let user = doc.data();
+                        console.log('admin.vue user:', user);
+                        user.id = doc.id;
+                        console.log(doc.data());
+                        if (!user.role.admin) {
+                            this.users.push(user);
+                        }
+                    });
+                });
         },
         methods: {
             signout() {
@@ -117,7 +152,7 @@
                     });
                 this.$q.notify({
                     message: 'Customer Logged out',
-                    color:'red'
+                    color: 'red'
                 })
             },
         }
@@ -127,6 +162,7 @@
   .header_dark {
     background: linear-gradient(145deg, rgb(173, 15, 18) 15%, rgb(0, 10, 10) 70%);
   }
+
   .header_normal {
     background: linear-gradient(
       145deg,
