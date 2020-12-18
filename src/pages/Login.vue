@@ -20,22 +20,21 @@
         >
           <q-card-section>
             <q-avatar
-              size="74px"
+              size="64px"
               class="absolute"
               style="top: 0;right: 25px;transform: translateY(-50%);"
             >
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9bEl-sOq6JHgen4ZB0SgdblZGuMoUSnMXfw&usqp=CAU" />
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis">
-                Log in to Dashboard
+                Log In
               </div>
             </div>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
-              <div class="gutter-sm" style="width: 300px; max-width: 90vw;">
-                <div class="row justify-center">
+                <div class="gutter-sm">
                 </div>
                 <div>
                   <q-input v-model="form.email" type="email" float-label="E-Mail" ref="email"/>
@@ -44,12 +43,11 @@
                   <q-input v-model="form.password" type="password" float-label="Password" />
                 </div>
                 <div class="row justify-center">
-                  <q-btn class="full-width" label="Sign In" @click="submit"/>
+                  <q-btn outline rounded class="full-width q-btn bg-green" label="Sign In" @click="submit"/>
                 </div>
                 <div class="row justify-center">
-                  <q-btn outline rounded class="full-width" label="Sign Up" to="/register"/>
+                  <q-btn outline rounded class="full-width q-btn bg-blue" label="Sign Up" to="/register"/>
                 </div>
-              </div>
             </q-form>
           </q-card-section>
         </q-card>
