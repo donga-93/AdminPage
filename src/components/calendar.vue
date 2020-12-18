@@ -50,7 +50,7 @@
 <script>
     // normally you would not import "all" of QCalendar, but is needed for this example to work with UMD (codepen)
     import QCalendar from '@quasar/quasar-ui-qcalendar' // ui is aliased from '@quasar/quasar-ui-qcalendar'
-    import { QCalendar } from '@quasar/quasar-ui-qcalendar
+
     const CURRENT_DAY = new Date()
 
     const reRGBA = /^\s*rgb(a)?\s*\((\s*(\d+)\s*,\s*?){2}(\d+)\s*,?\s*([01]?\.?\d*?)?\s*\)\s*$/
