@@ -17,7 +17,7 @@
           <tr v-for="user in users" :key="user.id">
             <td data-label="Name">{{user.email}}</td>
             <select @change="changeRole(user.id, $event)">
-              <option :selected="user.role.driver" value="driver">Driver</option>
+<!--              <option :selected="user.role.driver" value="driver">Driver</option>-->
               <option :selected="user.role.customer" value="customer">Customer</option>
             </select>
           </tr>
@@ -65,7 +65,7 @@
     },
 
     created() {
-      var self = this;
+      let self = this;
       firebase.auth().onAuthStateChanged(function(user) {
         self.user = user;
       });
@@ -77,7 +77,7 @@
         .get()
         .then(snap => {
           snap.forEach(doc => {
-            var user = doc.data();
+            let user = doc.data();
             console.log('admin.vue user:', user);
             user.id = doc.id;
             console.log(doc.data());
@@ -97,9 +97,9 @@
           });
       },
       changeRole(uid, event) {
-        var addMessage = firebase.functions().httpsCallable("setUserRole");
+        let addMessage = firebase.functions().httpsCallable("setUserRole");
 
-        var data = { uid: uid, role: { [event.target.value]: true } };
+          let data = { uid: uid, role: { [event.target.value]: true } };
 
         addMessage(data)
           .then(function(result) {

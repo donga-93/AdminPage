@@ -1,11 +1,12 @@
-import firebase from 'firebase'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 // "async" is optional
 export default async ({ router/* app, router, Vue, ... */ }) => {
   // something to do
   // Your web app's Firebase configuration
 
-  var firebaseConfig = {
+  let firebaseConfig = {
     apiKey: "AIzaSyD71DAMxi_2PA83bBBzmnT5QRoZrsZHGQU",
     authDomain: "employees-69020.firebaseapp.com",
     databaseURL: "https://employees-69020.firebaseio.com",

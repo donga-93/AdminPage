@@ -106,7 +106,6 @@ module.exports = function (/* ctx */) {
       workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: 'Firebase Role Auth',
-
         short_name: 'Firebase Role Auth',
         description: 'ejemplo crear app con quasar y firebase role https://softauthor.com/vue-js-firebase-role-based-authentication',
         display: 'standalone',

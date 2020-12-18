@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-white">
-    <q-header elevated>
+    <q-header class="bg-red-9" elevated>
       <q-toolbar>
         <q-btn
           flat
@@ -29,10 +29,10 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      content-class="bg-grey-2"
+      content-class="bg-red-9"
     >
-      <q-list>
-        <q-item-label header>Essential Links</q-item-label>
+      <q-list style="color: lawngreen;">
+        <q-item-label style="color: white;" header>Essential Links</q-item-label>
         <q-item clickable tag="a" target="_blank" rel="noopener" href="http://quasar.dev">
           <q-item-section avatar>
             <q-icon name="school" />

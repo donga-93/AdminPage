@@ -45,7 +45,7 @@
                 this.$router.push('/login');
               });
           } catch (error) {
-            console.log(error.message);
+            alert(error.message);
           }
         } else {
           alert('el password no es igual');
