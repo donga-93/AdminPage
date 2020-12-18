@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-white">
-    <q-header class="bg-red-9" elevated>
+    <q-header reveal :class="$q.dark.isActive ? 'header_dark' : 'header_normal'">
       <q-toolbar>
         <q-btn
           flat
@@ -24,7 +24,14 @@
       </q-toolbar>
     </q-header>
 
-
+    <q-btn
+      color="white"
+      class="absolute-left"
+      flat
+      round
+      @click="$q.dark.toggle()"
+      :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
+    />
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -116,3 +123,16 @@
         }
     }
 </script>
+<style>
+  .header_dark {
+    background: linear-gradient(145deg, rgb(173, 15, 18) 15%, rgb(0, 10, 10) 70%);
+  }
+  .header_normal {
+    background: linear-gradient(
+      145deg,
+      rgb(208, 35, 13) 15%,
+      rgb(255, 162, 150) 70%
+    );
+  }
+
+</style>

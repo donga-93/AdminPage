@@ -1,94 +1,29 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-white">
-    <q-header class="bg-red-9" elevated>
+    <q-header reveal  :class="$q.dark.isActive ? 'header_dark' : 'header_normal'">
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          @click="leftDrawerOpen = !leftDrawerOpen"
-          aria-label="Menu"
-          icon="menu"
-        />
+
 
         <q-btn
           to="/login"
-          flat
+          push
           icon-right="account_circle"
           label="Login"
-          class="absolute-right" />
+          class="absolute-right "
 
+          />
+        <q-btn
+          color="white"
+          class="absolute-left"
+          flat
+          round
+          @click="$q.dark.toggle()"
+          :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
+        />
         <q-toolbar-title style="text-align: center;">
-          Digital TV
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
-
-
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      content-class="bg-red-9"
-    >
-      <q-list style="color: lawngreen;">
-        <q-item-label style="color: white;" header>Essential Links</q-item-label>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="school" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>https://quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://github.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Github</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="http://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>https://chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>https://forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable tag="a" target="_blank" rel="noopener" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
 
     <q-page-container>
       <router-view />
@@ -101,8 +36,24 @@
         name: 'MyLayout',
         data () {
             return {
-                leftDrawerOpen: false
+                leftDrawerOpen: true
             }
         }
     }
 </script>
+<style>
+
+  .header_dark {
+    background: linear-gradient(145deg, rgb(173, 15, 18) 15%, rgb(0, 10, 10) 70%);
+  }
+  .header_normal {
+    background: linear-gradient(
+      145deg,
+      rgb(208, 35, 13) 15%,
+      rgb(255, 162, 150) 70%
+    );
+  }
+.normal{
+
+}
+</style>
