@@ -14,10 +14,10 @@
           class="q-mr-sm"
         />
                   <q-avatar>
-                    <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+                    <img src="https://library.kissclipart.com/20180915/bwq/kissclipart-icon-tv-png-clipart-computer-icons-television-comp-469a2624c1aa5ba8.png">
                   </q-avatar>
 
-        <q-toolbar-title>CRM Admin</q-toolbar-title>
+        <q-toolbar-title>Admin</q-toolbar-title>
         <q-btn
           style="position: absolute; left: 250px;"
           class="q-mr-xs"
@@ -75,6 +75,7 @@
               </q-item>
 
               <q-item
+
                 active-class="tab-active"
                 to="/v1Qx0KjofMgKSil77BRls2ofs5s1/customer_management"
                 class="q-ma-sm navigation-item"
@@ -168,7 +169,7 @@
 
 <style>
   .q-drawer {
-    background-image: url(https://i.pinimg.com/originals/27/e6/82/27e682f5b1efbf3d527a462b5060a2d4.jpg  ) !important;
+    background-image: url(https://digitaltv.ge/wp-content/uploads/2017/01/search-background-img.jpg) !important;
     background-size: cover !important;
   }
 
@@ -185,22 +186,20 @@
   }
 
   .tab-active {
-    background-color: green;
+    background-color: #dd1d1e;
   }
 
-  body {
-    background: #f1f1f1 !important;
-  }
+
 
   .header_normal {
     background: linear-gradient(
       145deg,
-      rgb(32, 106, 80) 15%,
-      rgb(21, 57, 102) 70%
+      rgb(208, 35, 13) 15%,
+      rgba(255, 162, 150, 0.44) 70%
     );
   }
 
   .header_dark {
-    background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%);
+    background: linear-gradient(145deg, rgb(173, 15, 18) 15%, rgb(0, 10, 10) 70%);
   }
 </style>

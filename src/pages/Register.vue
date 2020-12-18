@@ -1,6 +1,6 @@
 <template>
   <q-page padding class="row justify-center">
-    <div class="gutter-sm" style="width: 300px; max-width: 90vw;">
+    <div class="gutter-sm"  style="width: 300px; max-width: 90vw; background: ">
       <div>
         <q-input v-model="user.email" type="email" label="E-Mail"/>
       </div>
