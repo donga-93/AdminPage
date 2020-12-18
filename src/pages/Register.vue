@@ -4,14 +4,6 @@
       id="particles-js"
       :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"
     ></div>
-    <q-btn
-      color="white"
-      class="absolute-top-right"
-      flat
-      round
-      @click="$q.dark.toggle()"
-      :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
-    />
     <q-card
       class="login-form"
       v-bind:style="
