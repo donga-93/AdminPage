@@ -19,7 +19,7 @@
 
         <q-toolbar-title>Admin</q-toolbar-title>
         <q-btn
-          style="position: absolute; left: 250px;"
+          style="position: absolute; left: 170px;"
           class="q-mr-xs"
           flat
           round
