@@ -21,13 +21,13 @@
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis">
-                Log in to Dashboard
+                Log in to continue
               </div>
             </div>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
-              <div class="gutter-sm" style="width: 300px; max-width: 90vw;">
+
                 <div class="row justify-center">
                 </div>
                 <div>
@@ -42,7 +42,7 @@
                 <div class="row justify-center">
                   <q-btn outline rounded class="full-width" label="Sign Up" to="/register"/>
                 </div>
-              </div>
+
             </q-form>
           </q-card-section>
         </q-card>
