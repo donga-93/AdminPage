@@ -38,6 +38,7 @@
       bordered
       content-class="bg-grey-2"
     >
+
       <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
         <q-list padding>
           <q-item clickable v-ripple to="/customer">
@@ -99,6 +100,7 @@
           <div v-if="user" class="text-weight-bold">{{user.email}}</div>
         </div>
       </q-img>
+
     </q-drawer>
 
     <q-page-container>
