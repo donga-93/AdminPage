@@ -66,8 +66,7 @@
               P1
             </q-item-section>
           </q-item>
-
-          <q-item active clickable v-ripple to="/CustomerPage2">
+          <q-item clickable v-ripple to="/CustomerPage2">
             <q-item-section avatar>
               <q-icon name="star"/>
             </q-item-section>
@@ -76,7 +75,6 @@
               P2
             </q-item-section>
           </q-item>
-
           <q-item clickable v-ripple to="/CustomerPage3">
             <q-item-section avatar>
               <q-icon name="star"/>
@@ -86,7 +84,6 @@
               P3
             </q-item-section>
           </q-item>
-
           <q-item clickable v-ripple to="/CustomerPage4">
             <q-item-section avatar>
               <q-icon name="star"/>
