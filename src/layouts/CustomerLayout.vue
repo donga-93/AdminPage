@@ -10,7 +10,14 @@
           aria-label="Menu"
           icon="menu"
         />
-
+        <q-btn
+          style="position: absolute; left: 70px;"
+          class="q-mr-xs"
+          flat
+          round
+          @click="$q.dark.toggle()"
+          :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
+        />
         <q-btn
           @click="signout"
           flat

@@ -2,7 +2,14 @@
   <q-layout view="lHh Lpr lFf" class="bg-white">
     <q-header reveal  :class="$q.dark.isActive ? 'header_dark' : 'header_normal'">
       <q-toolbar>
-
+        <q-btn
+          style="position: absolute; left: 170px;"
+          class="q-mr-xs"
+          flat
+          round
+          @click="$q.dark.toggle()"
+          :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
+        />
 
         <q-btn
           to="/login"
