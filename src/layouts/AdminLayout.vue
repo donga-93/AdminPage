@@ -51,8 +51,7 @@
             <q-avatar>
               <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
             </q-avatar>
-
-            <q-toolbar-title>Admin Panel</q-toolbar-title>
+            <q-toolbar-title v-if="user">{{user.email}}</q-toolbar-title>
           </q-toolbar>
           <hr />
           <q-scroll-area style="height:100%;">
@@ -147,8 +146,33 @@
     export default {
         data() {
             return {
-                left: false
+                left: false,
+                users: [],
+                user: null,
             };
+        },
+        created() {
+            let self = this;
+            firebase.auth().onAuthStateChanged(function(user) {
+                self.user = user;
+            });
+
+            this.users = [];
+            firebase
+                .firestore()
+                .collection("roles")
+                .get()
+                .then(snap => {
+                    snap.forEach(doc => {
+                        let user = doc.data();
+                        console.log('admin.vue user:', user);
+                        user.id = doc.id;
+                        console.log(doc.data());
+                        if (!user.role.admin) {
+                            this.users.push(user);
+                        }
+                    });
+                });
         },
         methods: {
             signout() {

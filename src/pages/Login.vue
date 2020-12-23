@@ -1,59 +1,56 @@
 <template>
-      <q-page class="flex flex-center">
-        <div
-          id="particles-js"
-          :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"
-        ></div>
+  <q-page class="flex flex-center">
+    <div
+      id="particles-js"
+      :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"
+    ></div>
 
-        <q-card
-          class="login-form"
-          v-bind:style="
+    <q-card
+      class="login-form"
+      v-bind:style="
             $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
           "
+    >
+      <q-card-section>
+        <q-avatar
+          size="64px"
+          class="absolute"
+          style="top: 0;right: 25px;transform: translateY(-50%);"
         >
-          <q-card-section>
-            <q-avatar
-              size="74px"
-              class="absolute"
-              style="top: 0;right: 25px;transform: translateY(-50%);"
-            >
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
-            </q-avatar>
-            <div class="row no-wrap items-center">
-              <div class="col text-h6 ellipsis">
-                Log in to Dashboard
-              </div>
-            </div>
-          </q-card-section>
-          <q-card-section>
-            <q-form class="q-gutter-md">
-              <div class="gutter-sm" style="width: 300px; max-width: 90vw;">
-                <div class="row justify-center">
-                </div>
-                <div>
-                  <q-input v-model="form.email" type="email" float-label="E-Mail" ref="email"/>
-                </div>
-                <div>
-                  <q-input v-model="form.password" type="password" float-label="Password" />
-                </div>
-                <div class="row justify-center">
-                  <q-btn class="full-width" label="Sign In" @click="submit"/>
-                </div>
-                <div class="row justify-center">
-                  <q-btn outline rounded class="full-width" label="Sign Up" to="/register"/>
-                </div>
-              </div>
-            </q-form>
-          </q-card-section>
-        </q-card>
-      </q-page>
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9bEl-sOq6JHgen4ZB0SgdblZGuMoUSnMXfw&usqp=CAU" />
+        </q-avatar>
+        <div class="row no-wrap items-center">
+          <div class="col text-h6 ellipsis">
+            Log In
+          </div>
+        </div>
+      </q-card-section>
+      <q-card-section>
+        <q-form class="q-gutter-md">
+          <div class="gutter-sm">
+          </div>
+          <div>
+            <q-input v-model="form.email" type="email" float-label="E-Mail" ref="email"/>
+          </div>
+          <div>
+            <q-input v-model="form.password" type="password" float-label="Password" />
+          </div>
+          <div class="row justify-center">
+            <q-btn outline rounded class="full-width q-btn bg-green" label="Sign In" @click="submit"/>
+          </div>
+          <div class="row justify-center">
+            <q-btn outline rounded class="full-width q-btn bg-blue" label="Sign Up" to="/register"/>
+          </div>
+        </q-form>
+      </q-card-section>
+    </q-card>
+  </q-page>
 </template>
 
 
 <script>
     import firebase from "firebase";
     import { required, minLength, email } from 'vuelidate/lib/validators';
-
     export default {
         name: 'Login',
         data () {
@@ -113,7 +110,6 @@
                             color: 'green'
                         })
                     }
-
                 } catch (error) {
                     alert(error);
                     console.log(error);

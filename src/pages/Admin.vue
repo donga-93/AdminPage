@@ -1,36 +1,36 @@
 <template>
   <q-page>
-  <section v-if="user">
-    <div class="ui middle aligned center aligned grid">
-      <div class="column">
-        <h1 style="margin-top: 3px;text-align: center; color: blue;">Admin</h1>
-        <p style="margin-top: -90px;">Admin:{{user.email}}</p>
-<!--        <button class="ui pink submit button" @click="signout">Signout</button>-->
-        <table style="margin-right: auto; margin-top: -10px;" class="ui celled table">
-          <thead>
-          <tr style="">
-            <th>Email</th>
-            <th>Role</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="user in users" :key="user.id">
-            <td data-label="Name">{{user.email}}</td>
-            <select @change="changeRole(user.id, $event)">
-<!--              <option :selected="user.role.driver" value="driver">Driver</option>-->
-              <option :selected="user.role.customer" value="customer">Customer</option>
-            </select>
-          </tr>
-          </tbody>
-        </table>
+    <div v-if="user" style="margin-left: 300px; " class="row q-col-gutter-sm q-ma-xs">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <q-card class="my-card" flat bordered>
+          <q-card-section horizontal>
+            <q-card-section class="q-pt-xs">
+              <div class="text-overline">Georgia Region</div>
+              <div class="text-h5 q-mt-sm q-mb-xs">Admin:{{user.email}}</div>
+              <div class="text-caption text-grey">
+                Sales and Marketing Executive | Graduate and past committee | Keynote speaker on Selling and Recruiting
+                Topics
+              </div>
+            </q-card-section>
+
+            <q-card-section class="col-5 flex flex-center">
+              <q-img
+                class="rounded-borders"
+                src="https://www.cyberstrategies.co.uk/admin/resources/shutterstock110198630.jpg"
+              />
+            </q-card-section>
+          </q-card-section>
+          <q-separator/>
+        </q-card>
       </div>
     </div>
-  </section>
 
+    <div style="margin-left: 355px; margin-top: 2px; color: magenta;" class="text-h4">
+     List Of Employees
+    </div>
 
-    <h2 style="margin-left: 300px; color: deeppink;">Employees</h2>
     <List
-      style="padding-top: 20px; margin-left: 100px;"
+      style="margin-top: 30px; margin-left: 120px;"
       v-for="(task, key) in people"
       :key="key"
       :task="task"
@@ -88,27 +88,27 @@
         });
     },
     methods: {
-      signout() {
-        firebase
-          .auth()
-          .signOut()
-          .then(user => {
-            this.$router.push("/login");
-          });
-      },
-      changeRole(uid, event) {
-        let addMessage = firebase.functions().httpsCallable("setUserRole");
-
-          let data = { uid: uid, role: { [event.target.value]: true } };
-
-        addMessage(data)
-          .then(function(result) {
-            console.log(result);
-          })
-          .catch(function(error) {
-            console.log(error)
-          });
-      }
+      // signout() {
+      //   firebase
+      //     .auth()
+      //     .signOut()
+      //     .then(user => {
+      //       this.$router.push("/login");
+      //     });
+      // },
+      // changeRole(uid, event) {
+      //   let addMessage = firebase.functions().httpsCallable("setUserRole");
+      //
+      //     let data = { uid: uid, role: { [event.target.value]: true } };
+      //
+      //   addMessage(data)
+      //     .then(function(result) {
+      //       console.log(result);
+      //     })
+      //     .catch(function(error) {
+      //       console.log(error)
+      //     });
+      // }
     },
       computed: {
           ...mapGetters('people', ['people'])
