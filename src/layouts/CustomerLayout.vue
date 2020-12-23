@@ -85,12 +85,23 @@
             </q-item-section>
           </q-item>
           <q-item clickable v-ripple to="/CustomerPage4">
+
             <q-item-section avatar>
               <q-icon name="star"/>
             </q-item-section>
 
             <q-item-section>
               P4
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple to="/CustomerPage5">
+
+            <q-item-section avatar>
+              <q-icon name="star"/>
+            </q-item-section>
+
+            <q-item-section>
+              P5
             </q-item-section>
           </q-item>
         </q-list>
@@ -104,7 +115,6 @@
           <div v-if="user" class="text-weight-bold">{{user.email}}</div>
         </div>
       </q-img>
-
     </q-drawer>
 
     <q-page-container>

@@ -18,6 +18,7 @@ const routes = [
       { path: '/CustomerPage2', name: 'CustomerPage2', component: () => import('pages/CustomerPage2.vue'), meta: { auth: true} },
       { path: '/CustomerPage3', name: 'CustomerPage3', component: () => import('pages/CustomerPage3.vue'), meta: { auth: true} },
       { path: '/CustomerPage4', name: 'CustomerPage4', component: () => import('pages/CustomerPage4.vue'), meta: { auth: true} },
+      { path: '/CustomerPage5', name: 'CustomerPage5', component: () => import('pages/CustomerPage5.vue'), meta: { auth: true} },
     ]
   },
   {
