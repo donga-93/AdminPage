@@ -30,7 +30,8 @@ const state = {
       status:'Passive',
       password:'Bigboss-111'
     }
-  }
+  },
+  search: ''
 }
 
 const mutations = {
@@ -42,6 +43,9 @@ const mutations = {
   },
   addTask(state, payload) {
     Vue.set(state.people, payload.id, payload.task)
+  },
+  setSearch(state,value) {
+    state.search = value
   }
 }
 
@@ -59,10 +63,39 @@ const actions = {
       task: task
     }
     commit('addTask', payload)
+  },
+  setSearch({commit}, value) {
+    commit('setSearch',value)
   }
 }
 
 const getters = {
+  tasksFiltered: (state) => {
+    let tasksFiltered = {}
+    if (state.search) {
+      Object.keys(state.people).forEach(function(key) {
+        let task = state.people[key],
+          taskNameLowerCase = task.name.toLowerCase(),
+          searchLowerCase = state.search.toLowerCase()
+        if (taskNameLowerCase.includes(searchLowerCase)) {
+          tasksFiltered[key] = task
+        }
+      })
+      return tasksFiltered
+    }
+    return state.people
+  },
+  peopleTodo: (state, getters) => {
+    let tasksFiltered = getters.tasksFiltered
+    let people = {}
+    Object.keys(tasksFiltered).forEach(function(key) {
+      let task = tasksFiltered[key]
+      if (!task.completed) {
+        people[key] = task
+      }
+    })
+    return people
+  },
   people: (state) => {
     return state.people
   }

@@ -25,18 +25,25 @@
       </div>
     </div>
 
-    <div style="margin-left: 355px; margin-top: 2px; color: magenta;" class="text-h4">
-     List Of Employees
+
+
+    <div style="position:relative; width: 50%; margin-left: 255px;" class="row q-mb-lg">
+      <search />
+    </div>
+    <h6 style="position: relative; left: 255px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
+
+    <div style="position: relative; margin-left: 255px; margin-top: 2px; color: magenta;" class="text-h4">
+      List Of Employees
     </div>
 
     <List
-      style="margin-top: 30px; margin-left: 120px;"
-      v-for="(task, key) in people"
+      style="margin-top: 30px; margin-left: 220px;"
+      v-for="(task, key) in peopleTodo"
       :key="key"
       :task="task"
       :id="key">
     </List>
-    <div style="position: relative; margin-right: 10px;" class="absolute-bottom text-center q-mb-lg">
+    <div style="position: relative; margin-top: 60px; margin-right: 10px;" class="absolute-bottom text-center q-mb-lg">
       <q-btn
         @click="showAddTask = true"
         round
@@ -54,8 +61,10 @@
 </template>
 <script>
   import firebase from "firebase";
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapState } from 'vuex'
+  import Search from "../components/Tasks/Tools/Search";
   export default {
+      props: ['Admin'],
     data() {
       return {
         users: [],
@@ -111,11 +120,14 @@
       // }
     },
       computed: {
-          ...mapGetters('people', ['people'])
+          ...mapGetters('people', ['peopleTodo']),
+              ...mapState('people',['search'])
       },
       components: {
+          Search,
           'List' : require('components/Tasks/List.vue').default,
           'add-task' : require('components/AddPerson.vue').default,
+          'search' : require('components/Tasks/Tools/Search.vue').default
       }
   };
 </script>
