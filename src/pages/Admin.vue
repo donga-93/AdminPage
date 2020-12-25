@@ -26,13 +26,17 @@
     </div>
 
 
-
-    <div style="position:relative; width: 50%; margin-left: 255px;" class="row q-mb-lg">
+    <div style="position:relative; width: 55%; margin-left: 255px;" class="row q-mb-lg">
       <search />
+    </div>
+
+
+    <div style="position:relative; width: 50%; margin-left: 245px;" class="row q-mb-lg">
       <sort />
     </div>
-    <h6 style="position: relative; left: 255px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
 
+
+    <h6 style="position: relative; left: 255px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
     <div style="position: relative; margin-left: 255px; margin-top: 2px; color: magenta;" class="text-h4">
       List Of Employees
     </div>
@@ -44,6 +48,7 @@
       :task="task"
       :id="key">
     </List>
+
     <div style="position: relative; margin-top: 60px; margin-right: 10px;" class="absolute-bottom text-center q-mb-lg">
       <q-btn
         @click="showAddTask = true"
