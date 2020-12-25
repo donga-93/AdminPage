@@ -29,6 +29,7 @@
 
     <div style="position:relative; width: 50%; margin-left: 255px;" class="row q-mb-lg">
       <search />
+      <sort />
     </div>
     <h6 style="position: relative; left: 255px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
 
@@ -127,7 +128,8 @@
           Search,
           'List' : require('components/Tasks/List.vue').default,
           'add-task' : require('components/AddPerson.vue').default,
-          'search' : require('components/Tasks/Tools/Search.vue').default
+          'search' : require('components/Tasks/Tools/Search.vue').default,
+          'sort' : require('components/Tasks/Tools/Sort.vue').default
       }
   };
 </script>
