@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div v-if="user" style="margin-left: 300px; " class="row q-col-gutter-sm q-ma-xs">
+    <div v-if="user" style="margin-left: 100px; " class="row q-col-gutter-sm q-ma-xs">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card class="my-card" flat bordered>
           <q-card-section horizontal>
@@ -26,23 +26,23 @@
     </div>
 
 
-    <div style="position:relative; width: 55%; margin-left: 255px;" class="row q-mb-lg">
+    <div style="position:relative; width: 55%; margin-left: 155px;" class="row q-mb-lg">
       <search />
     </div>
 
 
-    <div style="position:relative; width: 50%; margin-left: 245px;" class="row q-mb-lg">
+    <div style="position:relative; width: 50%; margin-left: 145px;" class="row q-mb-lg">
       <sort />
     </div>
 
 
-    <h6 style="position: relative; left: 255px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
-    <div style="position: relative; margin-left: 255px; margin-top: 2px; color: magenta;" class="text-h4">
-      List Of Employees
+    <h6 style="position: relative; left: 155px; color: #dd1d1e;" v-if="search && !Object.keys(peopleTodo).length">No search result</h6>
+    <div style="position: relative; margin-left: 155px; margin-top: 2px; color: magenta;" class="text-h4">
+       Employees Of Digital TV
     </div>
 
     <List
-      style="margin-top: 30px; margin-left: 220px;"
+      style="margin-top: 30px; margin-left: 70px;"
       v-for="(task, key) in peopleTodo"
       :key="key"
       :task="task"

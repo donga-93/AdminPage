@@ -1,7 +1,9 @@
 <template>
   <q-item
     clickable
-    v-ripple>
+    v-ripple
+    style="width: 730px;"
+  >
     <q-item>
       <q-item-section side>
         <q-item-label overline style="color: chartreuse">Name</q-item-label>
