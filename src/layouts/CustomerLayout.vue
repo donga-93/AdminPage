@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf" class="bg-white">
+  <q-layout view="lHh LpR lFf">
     <q-header reveal :class="$q.dark.isActive ? 'header_dark' : 'header_normal'">
       <q-toolbar>
         <q-btn
@@ -25,24 +25,17 @@
           label="Logout"
           class="absolute-right"/>
 
-        <q-toolbar-title style="text-align: center;">
+        <q-toolbar-title style="position: absolute; left: 120px;">
           Digital TV
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <q-btn
-      color="white"
-      class="absolute-left"
-      flat
-      round
-      @click="$q.dark.toggle()"
-      :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
-    />
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      class="full-height"
       :class="$q.dark.isActive ? 'header_dark' : 'header_normal'"
     >
 
@@ -84,18 +77,7 @@
               P3
             </q-item-section>
           </q-item>
-          <q-item clickable v-ripple to="/CustomerPage4">
-
-            <q-item-section avatar>
-              <q-icon name="star"/>
-            </q-item-section>
-
-            <q-item-section>
-              P4
-            </q-item-section>
-          </q-item>
           <q-item clickable v-ripple to="/CustomerPage5">
-
             <q-item-section avatar>
               <q-icon name="star"/>
             </q-item-section>
